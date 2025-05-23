@@ -1,0 +1,30 @@
+from collections import Counter
+
+prepositions_list = {
+    "about", "above", "across", "after", "against", "along", "amid", "among", "around", "as",
+    "at", "before", "behind", "below", "beneath", "beside", "besides", "between", "beyond", "but",
+    "by", "concerning", "considering", "despite", "down", "during", "except", "excluding", "following", "for",
+    "from", "in", "inside", "into", "like", "minus", "near", "of", "off", "on",
+    "onto", "opposite", "out", "outside", "over", "past", "per", "plus", "regarding", "round",
+    "save", "since", "than", "through", "throughout", "till", "to", "toward", "towards", "under",
+    "underneath", "unlike", "until", "up", "upon", "versus", "via", "with", "within", "without",
+    "according to", "ahead of", "apart from", "as for", "as of", "as per", "as well as", "aside from", "because of", "close to",
+    "due to", "except for", "far from", "in addition to", "in case of", "in front of", "in lieu of", "in place of", "in spite of", "instead of",
+    "near to", "next to", "on account of", "on behalf of", "on top of", "out of", "owing to", "prior to", "regardless of", "thanks to"
+}
+vowels_list = {"a", "e", "i", "o", "u"}
+paragraph = input("Enter your paragraph : ")
+
+paraghaphs_word = paragraph.lower().replace(",", "").replace(".", "").split()
+found_prep = [word for word in paraghaphs_word if word in prepositions_list]
+found_vowels = [word for word in paraghaphs_word if word in vowels_list]
+print("Prepositon found: ",found_prep)
+print("vowels found: ",found_vowels)
+preposition_count = Counter(found_prep)
+vowels_count = Counter(found_vowels)
+
+for prep, count in preposition_count.items():
+    print(f"'{prep}' occurs {count} times ")
+
+for vow, count in vowels_count.items():
+    print(f"'{vow}' occurs {count} times ")
